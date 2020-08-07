@@ -1,0 +1,93 @@
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<div class="container">
+<style>
+/* Style the body */
+body {
+ font-family: Arial;
+ margin: 0;
+}
+/* Header/Logo Title */
+.header {
+ padding: 60px;
+ text-align: center;
+ background: orange;
+ color: white;
+ font-size: 30px;
+}
+/* Page Content */
+.content {padding:20px;}
+</style>
+</head>
+<body>
+<div class="header">
+ <h1>Vidyut Time Forecast</h1>
+ <p style="font-family: cursive;">98.79% Accuracy
+    <br>RandomForest Classifier</p>
+</div>
+<br/>
+<style>
+input[type=text], select {
+ width: 100%;
+ padding: 12px 20px;
+ margin: 8px 0;
+ display: inline-block;
+ border: 1px solid #ccc;
+ border-radius: 4px;
+ box-sizing: border-box;
+}
+input[type=submit] {
+ width: 30%;
+ justify-content: center;
+ background-color: orange;
+ color: white;
+ padding: 10px 20px;
+ margin: 8px 0;
+ border: none;
+ border-radius: 15px 0 15px 0;
+ cursor: pointer;
+}
+input[type=submit]:hover {
+ background-color: #45a049;
+ 
+}
+div {
+ border-radius: 5px;
+ background-color: lightgrey;
+ padding: 20px;
+}
+</style>
+<div>
+<!-- <form action="/predict" method = "post" enctype="text/plain">
+ <label for="fname" style="font-family: cursive;">Incident Reporter</label>
+ <input type="text" name = "incident" placeholder="enter your incident here ..">
+ <br><br> 
+ <div style="text-align:center;">
+ <input type="submit" value="Estimated time">{% if label %} {{ label }} {% endif %}
+ </div>
+ </form> -->
+<form action="/predict" method = "POST" enctype="text/plain">
+    <label for="incident">Do you know how what is the fault?:</label>
+    <select id="incident" name="incident">
+      <option value="1">Thunderstorm</option>
+      <option value="2">Heavy-rain</option>
+      <option value="3">Tree fall</option>
+      <option value="4">Transformer fault</option>
+      <option value="5">Grid fault </option>
+      <br><br> 
+ <div style="text-align:center;">
+ <input type="submit" value="Estimated time"><br><div style="text-align:center;"><h1>{% if label %} {{ label }} {% endif %}</h1>
+ </div></div>
+    </select> </form>
+</div>
+</body>
+<div>
+    <br>
+ <span style="color:red; font-family: cursive;font-size: 20px"><i>{{prediction}}</i></span>
+</div>
+</html>
