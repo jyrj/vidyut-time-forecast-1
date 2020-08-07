@@ -1,11 +1,11 @@
-##VidYUT Forecast
+## VidYUT Forecast
 
 
 The Python app would predict time for separate incidents:
 
 Deployed on Heroku at https://vidyut-forecast.herokuapp.com
 
-###Requirements for
+### Requirements for
 
 flask-model deployment> requirements.txt
 
