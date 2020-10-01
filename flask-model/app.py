@@ -41,6 +41,19 @@ def make_prediction():
                 return render_template('mainpage.html', label= time)
         except:
             abort(404)
+            
+@app.errorhandler(404):
+    return({
+        'success'=False,
+        'error'='Not found'
+    })
+@app.errorhandler(400):
+    return({
+        'success'=False,
+        'error'='Bad request'
+    })
+    
+       
 
 
 
